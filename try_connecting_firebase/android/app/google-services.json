@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "860386951079",
+    "project_id": "practice-ae309",
+    "storage_bucket": "practice-ae309.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860386951079:android:c71d10a04db13dca024082",
+        "android_client_info": {
+          "package_name": "com.example.try_connecting_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860386951079-iojiien32pc91son12uipe054ukqrift.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCC4Nzp0PRAWXZlSWk57wY066JMvYBUtrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "860386951079-iojiien32pc91son12uipe054ukqrift.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
