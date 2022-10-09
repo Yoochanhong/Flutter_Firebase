@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SuccessScreen extends StatefulWidget {
   const SuccessScreen({Key? key}) : super(key: key);
@@ -13,9 +14,19 @@ class _SuccessScreenState extends State<SuccessScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('로그인이 성공하면 보이는 화면'),
-        centerTitle: true,
 
-        ///제목 가운데 정렬
+        ///제목 가운데정렬
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              FirebaseAuth.instance.signOut(); ///로그아웃
+            },
+            icon: Icon(
+              Icons.exit_to_app_sharp,
+            ),
+          ),
+        ],
       ),
       body: Center(
         child: Text(
