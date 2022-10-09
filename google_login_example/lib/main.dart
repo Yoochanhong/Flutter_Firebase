@@ -1,6 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_login_example/login.dart';
 
 import 'firebase_options.dart';
 
@@ -24,25 +25,45 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyPage extends StatelessWidget {
+class MyPage extends StatefulWidget {
   const MyPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Google Login'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () {},
-              child: Text('Login'),
-            ),
+  State<MyPage> createState() => _MyPageState();
+}
 
-          ],
+class _MyPageState extends State<MyPage> {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        body: StreamBuilder(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return Login();
+            } else {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      '${snapshot.data!.displayName}님 반갑습니다.',
+                      style: TextStyle(
+                        fontSize: 24,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        FirebaseAuth.instance.signOut();
+                      },
+                      child: Text('로그아웃'),
+                    ),
+                  ],
+                ),
+              );
+            }
+          },
         ),
       ),
     );
