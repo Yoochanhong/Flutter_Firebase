@@ -80,8 +80,14 @@ class _MyAppState extends State<MyApp> {
                 SizedBox(
                   height: 30.0,
                 ),
-                ElevatedButton(
-                  onPressed: () {},
+                ElevatedButton( ///클릭하면 데이터를 추가해줌
+                  onPressed: () {
+                    firestore
+                        .collection(collection)
+                        .doc(doc)
+                        .set({'만족도': 100, 'title': 'Do it Flutter'});
+                    print('save');
+                  },
                   child: Text(
                     "Update",
                     style: TextStyle(
