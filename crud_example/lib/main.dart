@@ -114,7 +114,9 @@ class _MyAppState extends State<MyApp> {
                   height: 30.0,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    firestore.collection(collection).doc(doc).delete();
+                  },
                   child: Text(
                     "Delete",
                     style: TextStyle(
