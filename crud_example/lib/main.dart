@@ -99,13 +99,8 @@ class _MyAppState extends State<MyApp> {
                   height: 30.0,
                 ),
                 ElevatedButton(
-                  ///클릭하면 데이터를 추가해줌
                   onPressed: () {
-                    firestore
-                        .collection(collection)
-                        .doc(doc)
-                        .set({'만족도': 100, 'title': 'Do it Flutter'});
-                    print('save');
+                    firestore.collection(collection).doc(doc).update({"title" : '플러터로 웹 만들기'});
                   },
                   child: Text(
                     "Update",
