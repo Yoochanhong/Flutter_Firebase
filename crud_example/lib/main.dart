@@ -68,7 +68,25 @@ class _MyAppState extends State<MyApp> {
                   height: 30.0,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    firestore.collection(collection).doc(doc).get().then(
+                      (DocumentSnapshot ds) {
+                        if (ds.data() == null) {
+                          setState(() {
+                            title = "없음";
+                          });
+                        } else {
+                          Map<String, dynamic> map =
+                              ds.data() as Map<String, dynamic>;
+
+                          setState(() {
+                            title = map['title'];
+                          });
+                        }
+                        print("read : " + title);
+                      },
+                    );
+                  },
                   child: Text(
                     "Read",
                     style: TextStyle(
@@ -80,7 +98,8 @@ class _MyAppState extends State<MyApp> {
                 SizedBox(
                   height: 30.0,
                 ),
-                ElevatedButton( ///클릭하면 데이터를 추가해줌
+                ElevatedButton(
+                  ///클릭하면 데이터를 추가해줌
                   onPressed: () {
                     firestore
                         .collection(collection)
