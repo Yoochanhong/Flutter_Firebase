@@ -9,6 +9,14 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('로그인 성공'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              FirebaseAuth.instance.signOut();
+            },
+            icon: Icon(Icons.logout),
+          ),
+        ],
       ),
       body: Center(
         child: Text('로그인에 성공했습니다.'),
