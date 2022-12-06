@@ -1,10 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
-import 'package:flutterfire_ui/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutterfire_ui/auth.dart';
+import 'package:number_login_example/homescreen.dart';
 
-void main() async{
+import 'firebase_options.dart';
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -36,11 +38,25 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return StreamBuilder(
       stream: FirebaseAuth.instance.authStateChanges(),
-      builder: (context, snapshot){
-        if (!snapshot.hasData){
-          return SignInScreen();
-        }
-        else return HomeScreen();
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return SignInScreen(
+            subtitleBuilder: (context, action) {
+              return Padding(
+                padding: EdgeInsets.only(
+                  bottom: 8,
+                ),
+                child: Text(
+                  action == AuthAction.signIn ? 'Sign in' : 'Sign up',
+                ),
+              );
+            },
+            providerConfigs: [
+              PhoneProviderConfiguration(),
+            ],
+          );
+        } else
+          return HomeScreen();
       },
     );
   }
