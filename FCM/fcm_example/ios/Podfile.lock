@@ -612,9 +612,18 @@ PODS:
   - Firebase/Firestore (10.2.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 10.2.0)
+  - Firebase/InAppMessaging (10.2.0):
+    - Firebase/CoreOnly
+    - FirebaseInAppMessaging (~> 10.2.0-beta)
   - firebase_core (2.3.0):
     - Firebase/CoreOnly (= 10.2.0)
     - Flutter
+  - firebase_in_app_messaging (0.7.0-7):
+    - Firebase/InAppMessaging (= 10.2.0)
+    - firebase_core
+    - Flutter
+  - FirebaseABTesting (10.3.0):
+    - FirebaseCore (~> 10.0)
   - FirebaseCore (10.2.0):
     - FirebaseCoreInternal (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
@@ -634,12 +643,25 @@ PODS:
     - "gRPC-C++ (~> 1.44.0)"
     - leveldb-library (~> 1.22)
     - nanopb (< 2.30910.0, >= 2.30908.0)
+  - FirebaseInAppMessaging (10.2.0-beta):
+    - FirebaseABTesting (~> 10.0)
+    - FirebaseCore (~> 10.0)
+    - FirebaseInstallations (~> 10.0)
+    - GoogleUtilities/Environment (~> 7.8)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - FirebaseInstallations (10.3.0):
+    - FirebaseCore (~> 10.0)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GoogleUtilities/UserDefaults (~> 7.8)
+    - PromisesObjC (~> 2.1)
   - Flutter (1.0.0)
   - GoogleUtilities/Environment (7.10.0):
     - PromisesObjC (< 3.0, >= 1.2)
   - GoogleUtilities/Logger (7.10.0):
     - GoogleUtilities/Environment
   - "GoogleUtilities/NSData+zlib (7.10.0)"
+  - GoogleUtilities/UserDefaults (7.10.0):
+    - GoogleUtilities/Logger
   - "gRPC-C++ (1.44.0)":
     - "gRPC-C++/Implementation (= 1.44.0)"
     - "gRPC-C++/Interface (= 1.44.0)"
@@ -708,6 +730,7 @@ PODS:
 DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
+  - firebase_in_app_messaging (from `.symlinks/plugins/firebase_in_app_messaging/ios`)
   - Flutter (from `Flutter`)
 
 SPEC REPOS:
@@ -715,9 +738,12 @@ SPEC REPOS:
     - abseil
     - BoringSSL-GRPC
     - Firebase
+    - FirebaseABTesting
     - FirebaseCore
     - FirebaseCoreInternal
     - FirebaseFirestore
+    - FirebaseInAppMessaging
+    - FirebaseInstallations
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
@@ -731,6 +757,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/cloud_firestore/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
+  firebase_in_app_messaging:
+    :path: ".symlinks/plugins/firebase_in_app_messaging/ios"
   Flutter:
     :path: Flutter
 
@@ -740,9 +768,13 @@ SPEC CHECKSUMS:
   cloud_firestore: 14451f06cca99dbd56b069624621063150fef3e5
   Firebase: a3ea7eba4382afd83808376edb99acdaff078dcf
   firebase_core: db1432de826785171029b7c1a26e5b22ce1dd477
+  firebase_in_app_messaging: bd89b890d1be9b67c52a50d5b023a5c899ae6659
+  FirebaseABTesting: e6660693429b4663573c82f8d2f1041deff1753a
   FirebaseCore: 813838072b797b64f529f3c2ee35e696e5641dd1
   FirebaseCoreInternal: 29b76f784d607df8b2a1259d73c3f04f1210137b
   FirebaseFirestore: bda7a1ca8c19319a2acd2761cd4b962022c1d5ea
+  FirebaseInAppMessaging: fe7554d331f6369058a0dafa4c3b744dd7141ff2
+  FirebaseInstallations: e2f26126089dcf41e215f7b8925af8d953c7d602
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   GoogleUtilities: bad72cb363809015b1f7f19beb1f1cd23c589f95
   "gRPC-C++": 9675f953ace2b3de7c506039d77be1f2e77a8db2
