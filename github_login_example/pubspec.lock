@@ -106,7 +106,7 @@ packages:
     source: hosted
     version: "5.2.0"
   firebase_core:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: firebase_core
       sha256: "01962872df08437d9be593caeab8c700624c93b629f3d3d60f061612d6263666"
