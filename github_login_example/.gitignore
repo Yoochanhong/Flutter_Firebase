@@ -35,6 +35,7 @@ migrate_working_dir/
 /ios/firebase_app_id_file.json
 /ios/Runner/GoogleService-info.plist
 /lib/firebase_options.dart
+/lib/private.dart
 
 # Symbolication related
 app.*.symbols
