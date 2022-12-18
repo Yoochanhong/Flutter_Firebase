@@ -238,7 +238,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_webview_plugin:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_webview_plugin
       sha256: "158d87eed165e3491b3d74ff47bebd260ddb1b1ad4f739dd230a76d30e07302a"
