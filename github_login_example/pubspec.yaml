@@ -43,6 +43,7 @@ dependencies:
   http: ^0.13.5
   flutter_webview_plugin: ^0.3.11
   oauth2: ^2.0.1
+  url_launcher: ^6.1.7
 
 dev_dependencies:
   flutter_test:
