@@ -14,15 +14,16 @@ class GithubLoginWidget extends StatefulWidget {
     required this.githubClientId,
     required this.githubClientSecret,
     required this.githubScopes,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
+
   final AuthenticatedBuilder builder;
   final String githubClientId;
   final String githubClientSecret;
   final List<String> githubScopes;
 
   @override
-  _GithubLoginState createState() => _GithubLoginState();
+  State<GithubLoginWidget> createState() => _GithubLoginState();
 }
 
 typedef AuthenticatedBuilder = Widget Function(
@@ -47,7 +48,6 @@ class _GithubLoginState extends State<GithubLoginWidget> {
         child: ElevatedButton(
           onPressed: () async {
             await _redirectServer?.close();
-            // Bind to an ephemeral port on localhost
             _redirectServer = await HttpServer.bind('localhost', 0);
             var authenticatedHttpClient = await _getOAuth2Client(
                 Uri.parse('http://localhost:${_redirectServer!.port}/auth'));
@@ -85,11 +85,10 @@ class _GithubLoginState extends State<GithubLoginWidget> {
   }
 
   Future<void> _redirect(Uri authorizationUrl) async {
-    var url = authorizationUrl.toString();
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrl(authorizationUrl)) {
+      await launchUrl(authorizationUrl);
     } else {
-      throw GithubLoginException('Could not launch $url');
+      throw GithubLoginException('Could not launch $authorizationUrl');
     }
   }
 
